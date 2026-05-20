@@ -1,9 +1,9 @@
 import axios from "axios";
-import type { Note } from "../types/note";
+import type { Note } from "@/src/types/note";
 
 // ============ KONSTANTEN ============
 const API_BASE = "https://notehub-public.goit.study/api";
-const TOKEN = import.meta.env.VITE_NOTEHUB_TOKEN;
+const TOKEN = process.env.NEXT_PUBLIC_NOTEHUB_TOKEN;
 
 // ============ AXIOS INSTANCE ============
 const axiosInstance = axios.create({
