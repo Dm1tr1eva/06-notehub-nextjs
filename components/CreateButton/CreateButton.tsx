@@ -1,3 +1,4 @@
+"use client";
 import css from "@/components/NoteList/NoteList.module.css";
 
 interface CreateButtonProps {

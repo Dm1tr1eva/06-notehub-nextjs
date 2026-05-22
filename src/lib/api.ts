@@ -32,6 +32,12 @@ export interface CreateNoteRequest {
 }
 
 // ============ FUNCTIONS ============
+// ============GET SINGLE NOTE===========
+export async function fetchNoteById(noteId: string): Promise<Note> {
+  const response = await axiosInstance.get<Note>(`/notes/${noteId}`);
+  return response.data;
+}
+
 // ============GET===========
 export async function fetchNotes(
   params: fetchNotesParams,
