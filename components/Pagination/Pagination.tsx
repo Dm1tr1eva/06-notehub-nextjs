@@ -19,7 +19,7 @@ export default function Pagination({
   }
 
   const handlePageClick = (event: { selected: number }) => {
-    onPageChange(event.selected);
+    onPageChange(event.selected + 1);
   };
 
   return (
@@ -36,7 +36,7 @@ export default function Pagination({
       previousClassName={css.previous}
       nextClassName={css.next}
       disabledClassName={css.disabled}
-      forcePage={currentPage}
+      forcePage={currentPage - 1}
     />
   );
 }

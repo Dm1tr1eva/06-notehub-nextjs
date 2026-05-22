@@ -50,7 +50,7 @@ export default function NotesClient({ initialPage = 1 }: Props) {
   };
 
   const handlePageChange = (pageNumber: number) => {
-    setCurrentPage(pageNumber + 1);
+    setCurrentPage(pageNumber);
   };
 
   const pageCount = notesData?.totalPages ?? 0;
@@ -70,7 +70,7 @@ export default function NotesClient({ initialPage = 1 }: Props) {
 
         {pageCount > 1 && (
           <Pagination
-            currentPage={currentPage - 1}
+            currentPage={currentPage}
             pageCount={pageCount}
             onPageChange={handlePageChange}
           />
