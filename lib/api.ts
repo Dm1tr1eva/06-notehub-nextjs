@@ -1,11 +1,9 @@
 import axios from "axios";
-import type { Note } from "@/src/types/note";
+import type { Note } from "@/types/note";
 
-// ============ KONSTANTEN ============
 const API_BASE = "https://notehub-public.goit.study/api";
 const TOKEN = process.env.NEXT_PUBLIC_NOTEHUB_TOKEN;
 
-// ============ AXIOS INSTANCE ============
 const axiosInstance = axios.create({
   baseURL: API_BASE,
   headers: {
@@ -13,7 +11,6 @@ const axiosInstance = axios.create({
   },
 });
 
-// ============ TYPES ============
 interface fetchNotesParams {
   page: number;
   perPage: number;
@@ -31,14 +28,11 @@ export interface CreateNoteRequest {
   tag: "Todo" | "Work" | "Personal" | "Meeting" | "Shopping";
 }
 
-// ============ FUNCTIONS ============
-// ============GET SINGLE NOTE===========
 export async function fetchNoteById(noteId: string): Promise<Note> {
   const response = await axiosInstance.get<Note>(`/notes/${noteId}`);
   return response.data;
 }
 
-// ============GET===========
 export async function fetchNotes(
   params: fetchNotesParams,
 ): Promise<FetchNotesResponse> {
@@ -53,14 +47,11 @@ export async function fetchNotes(
   return response.data;
 }
 
-// ============POST===========
 export async function createNote(noteData: CreateNoteRequest): Promise<Note> {
   const response = await axiosInstance.post<Note>("/notes", noteData);
 
   return response.data;
 }
-
-// ============DELETE===========
 
 export async function deleteNote(noteId: string): Promise<Note> {
   const response = await axiosInstance.delete<Note>(`/notes/${noteId}`);
